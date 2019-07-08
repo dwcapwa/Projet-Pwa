@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="Page de réservation.">
+    
+	<title>Lumina Hôtel</title>
+
+	
+
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet">
+
+	
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	
+    <link rel="manifest" href="/manifest.json">
+  
+	
+</head>
+
+<body>
+<form action="recupbasededonnee.php" method="post">
+	<div id="booking" class="section">
+		<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="booking-form">
+						<form>
+							<h1 style="font-family: georgia; size: 35px; color: white; padding-bottom: 20px; text-align: center;">RERSERVATION HOTEL LUMINA</h1>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Prénom</span>
+										<input class="form-control" type="text" name="prenom"
+										placeholder="ex: Alex">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Nom</span>
+										<input class="form-control" type="text" name="nom" placeholder="ex: Dubois">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<div class="form-group">
+										<span class="form-label">Arrivée</span>
+										<input class="form-control" type="date" name="dateArrivee"required>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<span class="form-label">Départ</span>
+										<input class="form-control" type="date" name="dateDepart"required>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
+										<span class="form-label">Adulte</span>
+										<select name="idAdulte">
+											<option>Un adulte</option>
+											<option>Deux adultes</option>
+											<option>Trois adultes</option>
+											<option>Quatre adultes</option>
+                                        </select>
+										<span class="select-arrow"></span>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
+										<span class="form-label">Enfant</span>
+										<select name="idEnfant">
+											<option>Un enfant</option>
+											<option>Deux enfants</option>
+											<option>Trois enfants</option>
+											<option>Quatre enfants</option>
+                                        </select>
+										<span class="select-arrow"></span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<div class="form-group">
+										<span class="form-label">Option</span>
+										<select name="idChoix">
+											<option>Aucune option</option>
+											<option>Repas compris</option>
+											<option>Location de voiture</option>
+											<option>Tout compris</option>
+                                        </select>
+										<span class="select-arrow"></span>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-btn">
+										<button class="submit-btn">Réservez</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+	<script src="sw.js"></script>
+	<script>
+        if ('serviceWorker' in navigator) {
+              navigator.serviceWorker.register('sw.js');
+        }
+        
+       /* 
+        if (window.caches){
+            caches.open("reservationAPP").then(cache=>{
+                cache.addAll([
+                  'index.html',
+                  'css/bootstrap.min.css',
+                  'css/style.css'
+                    ])
+            })
+        }
+     */
+        if (window.Notification && window.Notification !== 'denied') {
+            Notification.requestPermission(perm => {
+                if (perm === 'granted') {
+                  const notif= new Notification ('ma première notification')
+                } else {
+                    console.log('autorisation de recevoir des notifications refusée');
+                }
+            })
+        }
+</script>
+</body>
+</html>
